@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./BACKEND
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./deploy/.env
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./FRONTEND
+    ports:
+      - "3000:3000"
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: your_db
+      POSTGRES_USER: your_user
+      POSTGRES_PASSWORD: your_password
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
