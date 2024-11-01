@@ -1,0 +1,1 @@
+print(sorted(["aaa","bb","c"], key=len))

@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "cafe service application"
+name = "Biopharma services"
 version = "0.1.0"
-description = "Cafe management system app"
+description = "Applications management system app"
 authors = ["Oleksandr Dyshliuk <dishalex@gmail.com>"]
 license = "MIT"
 readme = "README.md"

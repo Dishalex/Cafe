@@ -160,3 +160,20 @@ MenuHistory
                                                 +-------------------+
 
 ```
+
+# Explanation of the Models
+**User**: Represents a user in the system, with fields for username, email, password_hash, role, and balance. It has a one-to-many relationship with Order.
+
+**Product**: Represents a product or ingredient, with fields for name, calories, unit, and quantity. It has a many-to-many relationship with Dish through the dish_products_table.
+
+**Dish**: Represents a dish, with fields for name, calories, photo, stock, and foreign keys to Menu and User (Chef). It has a many-to-many relationship with Product.
+
+**Menu**: Represents a menu, with fields for name (type of menu), start_date, and end_date. It has a one-to-many relationship with Dish.
+
+**Order**: Represents an order placed by a user, with fields for user_id, status, total, created_at, and updated_at. It has a one-to-many relationship with OrderItem.
+
+**OrderItem**: Represents an item in an order, with fields for order_id, dish_id, quantity, and price. It has a many-to-one relationship with both Order and Dish.
+
+**OrderHistory**: Tracks changes to the status of an order over time, with fields for order_id, status, and timestamp.
+
+**MenuHistory**: Records changes to a menu, including changes to the dishes and their prices, with fields for menu_id, dish_id, price, and date.
